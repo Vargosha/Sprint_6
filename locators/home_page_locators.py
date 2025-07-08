@@ -4,14 +4,14 @@ class HomePageLocators:
     SCOOTER_LOGO_BUTTON = ("xpath", ".//a[@class='Header_LogoScooter__3lsAR']") # Кнопка логотип Самокат
     HEADER_ORDER_BUTTON = ("xpath", ".//button[@class='Button_Button__ra12g']") # Верхняя кнопка Заказать
     BOTTOM_ORDER_BUTTON = ("xpath", "(.//button[text()='Заказать'])[2]") # Нижняя кнопка Заказать
-    FAQ_QUESTION_ONE = ("xpath", "(.//div[@class='accordion__item'])[1]") # Кнопка первого вопроса в FAQ
-    FAQ_QUESTION_TWO = ("xpath", "(.//div[@class='accordion__item'])[2]") # Кнопка второго вопроса в FAQ
-    FAQ_QUESTION_THREE = ("xpath", "(.//div[@class='accordion__item'])[3]") # Кнопка третьего вопроса в FAQ
-    FAQ_QUESTION_FOUR = ("xpath", "(.//div[@class='accordion__item'])[4]") # Кнопка четветого вопроса в FAQ
-    FAQ_QUESTION_FIVE = ("xpath", "(.//div[@class='accordion__item'])[5]") # Кнопка пятого вопроса в FAQ
-    FAQ_QUESTION_SIX = ("xpath", "(.//div[@class='accordion__item'])[6]") # Кнопка шестого вопроса в FAQ
-    FAQ_QUESTION_SEVEN = ("xpath", "(.//div[@class='accordion__item'])[7]") # Кнопка седьмого вопроса в FAQ
-    FAQ_QUESTION_EIGHT = ("xpath", "(.//div[@class='accordion__item'])[8]") # Кнопка восьмого вопроса в FAQ
+    FAQ_QUESTION_ONE = ("xpath", ".//div[@id='accordion__heading-0']") # Кнопка первого вопроса в FAQ
+    FAQ_QUESTION_TWO = ("xpath", ".//div[@id='accordion__heading-1']") # Кнопка второго вопроса в FAQ
+    FAQ_QUESTION_THREE = ("xpath", ".//div[@id='accordion__heading-2']") # Кнопка третьего вопроса в FAQ
+    FAQ_QUESTION_FOUR = ("xpath", ".//div[@id='accordion__heading-3']") # Кнопка четветого вопроса в FAQ
+    FAQ_QUESTION_FIVE = ("xpath", ".//div[@id='accordion__heading-4']") # Кнопка пятого вопроса в FAQ
+    FAQ_QUESTION_SIX = ("xpath", ".//div[@id='accordion__heading-5']") # Кнопка шестого вопроса в FAQ
+    FAQ_QUESTION_SEVEN = ("xpath", ".//div[@id='accordion__heading-6']") # Кнопка седьмого вопроса в FAQ
+    FAQ_QUESTION_EIGHT = ("xpath", ".//div[@id='accordion__heading-7']") # Кнопка восьмого вопроса в FAQ
     FAQ_ANSWER_ONE = ("xpath", "(.//div[@class='accordion__panel'])[1]/p") # Панель Ответа на первый вопрос в FAQ
     FAQ_ANSWER_TWO = ("xpath", "(.//div[@class='accordion__panel'])[2]/p") # Панель Ответа на второй вопрос в FAQ
     FAQ_ANSWER_THREE = ("xpath", "(.//div[@class='accordion__panel'])[3]/p") # Панель Ответа на третий вопрос в FAQ

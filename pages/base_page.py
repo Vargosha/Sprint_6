@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+import allure
 
 
 class BasePage:
@@ -26,6 +27,7 @@ class BasePage:
     def get_current_url(self):
         return self.driver.current_url
 
+    @allure.step('Переключаемся на новую вкладку')
     def switch_to_new_tab(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
