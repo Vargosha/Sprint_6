@@ -1,7 +1,7 @@
 import pytest
 from pages.order_page import OrderPageMethods
 from pages.dzen_page import DzenPageMethods
-from tests.order_data import DataForTests
+from tests.data import DataForTests
 
 class TestOrderPage:
     @pytest.mark.parametrize('order_data', DataForTests.ORDER_DATA)
