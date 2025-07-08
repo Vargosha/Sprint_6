@@ -1,40 +1,38 @@
 from locators.order_page_locators import OrderPageLocators
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+from pages.base_page import BasePage
 
 
-class OrderPageMethods:
+class OrderPageMethods(BasePage):
     def __init__(self,driver):
-        self.driver = driver
+        super().__init__(driver)
         self.locators = OrderPageLocators()
 
     # Шаг 1
     def wait_for_load_order_page_step_one(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.NEXT_BUTTON))
+        return self.is_element_visible(self.locators.NEXT_BUTTON)
 
     def click_next_button(self):
-        self.driver.find_element(*self.locators.NEXT_BUTTON).click()
+        self.click(self.locators.NEXT_BUTTON)
 
     def set_name(self,name):
-        self.driver.find_element(*self.locators.NAME_INPUT_FIELD).send_keys(name)
+        self.send_keys(self.locators.NAME_INPUT_FIELD,name)
 
     def set_surname(self,surname):
-        self.driver.find_element(*self.locators.SURNAME_INPUT_FIELD).send_keys(surname)
+        self.send_keys(self.locators.SURNAME_INPUT_FIELD,surname)
 
     def set_adress(self,adress):
-        self.driver.find_element(*self.locators.ADRESS_INPUT_FIELD).send_keys(adress)
+        self.send_keys(self.locators.ADRESS_INPUT_FIELD,adress)
 
     def set_metro_station(self,station):
         metro_stations = {
             'Бульвар Рокоссовского': self.locators.METRO_STATION_ROKOSSOVSKY_BOULEVARD,
             'Комсомольская': self.locators.METRO_STATION_KOMSOMOLSKAYA
         }
-        self.driver.find_element(*self.locators.METRO_STATION_SELECT_FIELD).click()
-        self.driver.find_element(*metro_stations[station]).click()
+        self.click(self.locators.METRO_STATION_SELECT_FIELD)
+        self.click(metro_stations[station])
 
     def set_phone_number(self,phone_number):
-        self.driver.find_element(*self.locators.PHONE_NUMBER_INPUT_FIELD).send_keys(phone_number)
+        self.send_keys(self.locators.PHONE_NUMBER_INPUT_FIELD,phone_number)
 
     def set_step_one(self, name, surname, adress, station, phone_number):
         self.wait_for_load_order_page_step_one()
@@ -47,25 +45,24 @@ class OrderPageMethods:
 
     # Шаг 2
     def wait_for_load_order_page_step_two(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.ORDER_BUTTON))
+        return self.is_element_visible(self.locators.ORDER_BUTTON)
 
     def click_order_button(self):
-        self.driver.find_element(*self.locators.ORDER_BUTTON).click()
+        self.click(self.locators.ORDER_BUTTON)
 
     def click_header_disclaimer(self):
-        self.driver.find_element(*self.locators.HEADER_DISCLAIMER).click()
+        self.click(self.locators.HEADER_DISCLAIMER)
 
     def set_delivery_date(self,delivery_date):
-        self.driver.find_element(*self.locators.DELIVERY_DATE_INPUT_FIELD).send_keys(delivery_date)
+        self.send_keys(self.locators.DELIVERY_DATE_INPUT_FIELD,delivery_date)
 
     def set_rental_period(self,period):
         days_period = {
             'Сутки': self.locators.RENTAL_PERIOD_ONE_DAY_BUTTON,
             'Трое суток':self.locators.RENTAL_PERIOD_THREE_DAYS_BUTTON
         }
-        self.driver.find_element(*self.locators.RENTAL_PERIOD_SELECT_FIELD).click()
-        self.driver.find_element(*days_period[period]).click()
+        self.click(self.locators.RENTAL_PERIOD_SELECT_FIELD)
+        self.click(days_period[period])
 
     def set_step_two(self,delivery_date,period):
         self.wait_for_load_order_page_step_two()
@@ -76,11 +73,10 @@ class OrderPageMethods:
 
     # Шаг 3
     def wait_for_load_order_page_step_three(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.CONFIRM_BUTTON))
+        return self.is_element_visible(self.locators.CONFIRM_BUTTON)
 
     def click_confirm_button(self):
-        self.driver.find_element(*self.locators.CONFIRM_BUTTON).click()
+        self.click(self.locators.CONFIRM_BUTTON)
 
     def set_step_three(self):
         self.wait_for_load_order_page_step_three()
@@ -88,14 +84,13 @@ class OrderPageMethods:
 
     # Шаг 4
     def wait_for_load_order_page_step_four(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.SHOW_STATUS_ORDER_BUTTON))
+        return self.is_element_visible(self.locators.SHOW_STATUS_ORDER_BUTTON)
 
     def click_show_status_order_button(self):
-        self.driver.find_element(*self.locators.SHOW_STATUS_ORDER_BUTTON).click()
+        self.click(self.locators.SHOW_STATUS_ORDER_BUTTON)
 
     def check_show_status_order_button_is_enabled(self):
-        return self.driver.find_element(*self.locators.SHOW_STATUS_ORDER_BUTTON).is_enabled()
+        return self.find_element(self.locators.SHOW_STATUS_ORDER_BUTTON).is_enabled()
 
     def set_step_four(self):
         self.wait_for_load_order_page_step_four()

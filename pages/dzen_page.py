@@ -1,15 +1,13 @@
 from locators.dzen_page_locators import DzenPageLocators
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+from pages.base_page import BasePage
 
 
-class DzenPageMethods:
+class DzenPageMethods(BasePage):
     dzen_url = 'https://dzen.ru/?yredirect=true'
 
     def __init__(self,driver):
-        self.driver = driver
+        super().__init__(driver)
         self.locators = DzenPageLocators()
 
     def wait_for_dzen_tab_opens(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.DZEN_LOGO))
+        return self.is_element_visible(self.locators.DZEN_LOGO)

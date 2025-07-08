@@ -1,81 +1,76 @@
 from locators.home_page_locators import HomePageLocators
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+from pages.base_page import BasePage
 
 
-class HomePageMethods:
+class HomePageMethods(BasePage):
     home_page_url = 'https://qa-scooter.praktikum-services.ru/'
 
     def __init__(self,driver):
-        self.driver = driver
+        super().__init__(driver)
         self.locators = HomePageLocators()
 
     def wait_for_load_home_page(self):
-        WebDriverWait(self.driver, 5).until(
-            expected_conditions.visibility_of_element_located(self.locators.COOKIES_ACCEPT_BUTTON))
-
-    def switch_to_new_tab(self):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
+        return self.is_element_visible(self.locators.COOKIES_ACCEPT_BUTTON)
 
     def click_cookies_accept_button(self):
-        self.driver.find_element(*self.locators.COOKIES_ACCEPT_BUTTON).click()
+        self.click(self.locators.COOKIES_ACCEPT_BUTTON)
 
     def click_yandex_logo_button(self):
-        self.driver.find_element(*self.locators.YANDEX_LOGO_BUTTON).click()
+        self.click(self.locators.YANDEX_LOGO_BUTTON)
 
     def click_scooter_logo_button(self):
-        self.driver.find_element(*self.locators.SCOOTER_LOGO_BUTTON).click()
+        self.click(self.locators.SCOOTER_LOGO_BUTTON)
 
     def click_header_order_button(self):
-        self.driver.find_element(*self.locators.HEADER_ORDER_BUTTON).click()
+        self.click(self.locators.HEADER_ORDER_BUTTON)
 
     def click_bottom_order_button(self):
-        self.driver.find_element(*self.locators.BOTTOM_ORDER_BUTTON).click()
+        self.click(self.locators.BOTTOM_ORDER_BUTTON)
 
     def click_faq_question_one(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_ONE).click()
+        self.click(self.locators.FAQ_QUESTION_ONE)
 
     def click_faq_question_two(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_TWO).click()
+        self.click(self.locators.FAQ_QUESTION_TWO)
 
     def click_faq_question_three(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_THREE).click()
+        self.click(self.locators.FAQ_QUESTION_THREE)
 
     def click_faq_question_four(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_FOUR).click()
+        self.click(self.locators.FAQ_QUESTION_FOUR)
 
     def click_faq_question_five(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_FIVE).click()
+        self.click(self.locators.FAQ_QUESTION_FIVE)
 
     def click_faq_question_six(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_SIX).click()
+        self.click(self.locators.FAQ_QUESTION_SIX)
 
     def click_faq_question_seven(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_SEVEN).click()
+        self.click(self.locators.FAQ_QUESTION_SEVEN)
 
     def click_faq_question_eight(self):
-        self.driver.find_element(*self.locators.FAQ_QUESTION_EIGHT).click()
+        self.click(self.locators.FAQ_QUESTION_EIGHT)
 
     def text_answer_for_question_one(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_ONE).text
+        return self.get_text(self.locators.FAQ_ANSWER_ONE)
 
     def text_answer_for_question_two(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_TWO).text
+        return self.get_text(self.locators.FAQ_ANSWER_TWO)
 
     def text_answer_for_question_three(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_THREE).text
+        return self.get_text(self.locators.FAQ_ANSWER_THREE)
 
     def text_answer_for_question_four(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_FOUR).text
+        return self.get_text(self.locators.FAQ_ANSWER_FOUR)
 
     def text_answer_for_question_five(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_FIVE).text
+        return self.get_text(self.locators.FAQ_ANSWER_FIVE)
 
     def text_answer_for_question_six(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_SIX).text
+        return self.get_text(self.locators.FAQ_ANSWER_SIX)
 
     def text_answer_for_question_seven(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_SEVEN).text
+        return self.get_text(self.locators.FAQ_ANSWER_SEVEN)
 
     def text_answer_for_question_eight(self):
-        return self.driver.find_element(*self.locators.FAQ_ANSWER_EIGHT).text
+        return self.get_text(self.locators.FAQ_ANSWER_EIGHT)
