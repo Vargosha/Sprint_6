@@ -3,8 +3,6 @@ from pages.base_page import BasePage
 
 
 class HomePageMethods(BasePage):
-    home_page_url = 'https://qa-scooter.praktikum-services.ru/'
-
     def __init__(self,driver):
         super().__init__(driver)
         self.locators = HomePageLocators()

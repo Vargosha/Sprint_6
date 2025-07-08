@@ -2,6 +2,8 @@ import pytest
 from pages.order_page import OrderPageMethods
 from pages.dzen_page import DzenPageMethods
 from tests.data import DataForTests
+from tests.urls import *
+
 
 class TestOrderPage:
     @pytest.mark.parametrize('order_data', DataForTests.ORDER_DATA)
@@ -46,7 +48,7 @@ class TestOrderPage:
         orderpage.set_step_four()
         homepage.click_scooter_logo_button()
 
-        assert homepage.get_current_url() == homepage.home_page_url
+        assert homepage.get_current_url() == HOME_PAGE_URL
 
     @pytest.mark.parametrize('order_data', DataForTests.ORDER_DATA)
     def test_yandex_logo_opens_dzen_in_new_tab_with_multiple_data(self,homepage,order_data):
@@ -73,7 +75,7 @@ class TestOrderPage:
         homepage.switch_to_new_tab()
         dzenpage.wait_for_dzen_tab_opens()
 
-        assert homepage.get_current_url() == dzenpage.dzen_url
+        assert homepage.get_current_url() == DZEN_PAGE_URL
 
     @pytest.mark.parametrize('order_data', DataForTests.ORDER_DATA)
     def test_create_order_via_footer_button_with_multiple_data(self,homepage,order_data):
